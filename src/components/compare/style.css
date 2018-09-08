@@ -11,7 +11,6 @@
 }
 
 .compare__item {
-    border-bottom: .2rem solid #AEAEAE;
     margin-bottom: .5rem;
     position: relative;
     min-width: 150px;
@@ -19,7 +18,11 @@
 }
 
 .compare::-webkit-scrollbar {
-  display: none;
+    display: none;
+}
+
+.compare__traits-container {
+    display:flex;
 }
 
 .compare__traits {
@@ -30,8 +33,9 @@
 }
 
 .compare__traits-item {
-    border: 1px solid grey;
+    border-bottom: 1px solid grey;
     padding: .5rem;
+    flex-grow: 1;
 }
 
 .compare__traits-item--diff {
@@ -51,6 +55,9 @@
     max-width:70%;
     margin:auto;
     margin-bottom: .5rem;
+    color: #0E53C4;
+    font-weight:700;
+    min-height: 3.5rem;
 }
 
 .compare__price {
@@ -63,5 +70,26 @@
     position:absolute;
     right: 1rem;
     top:.5rem;
+}
+
+.compare__badge {
+    width: 1.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .compare {
+        text-align: left;
+    }
+
+    .compare__name {
+        margin:0;
+    }
+    .compare__traits {
+        display:block;
+        position:relative;
+        align-self: flex-end;
+        top:0;
+    }
+
 }
 

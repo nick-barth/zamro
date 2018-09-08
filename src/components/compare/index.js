@@ -23,7 +23,6 @@ class Compare extends Component {
                 display: p.Artikelnummer === productId ? !p.display : p.display
               }
           });
-          console.log
           this.setState({
               products: newProducts
           });
@@ -48,23 +47,14 @@ class Compare extends Component {
                     {displayedProducts.map(product => {
                         const { name, Artikelnummer } = product;
                         return (
-                            <div className="compare__select-item">
+                            <div key={Artikelnummer} className="compare__select-item">
                                 <input type="checkbox" checked={product.display} value={Artikelnummer} onChange={(id) => this.toggleSelection(id)} />
                                 <label className="compare__select__label"> {name} </label>
                             </div>
                         )
                     })}
                 </div>
-                <div className="compare__traits">
-                    {displayedTraits.map(item => {
-                        return (
-                            <div className="compare__traits-item">
-                                {item}
-                            </div>
-                        );
-                    })}
-                </div>
-                {displayedProducts.map(product => {
+                {displayedProducts.map((product, index) => {
                     const { productImage, salePrice, name, Artikelnummer } = product;
                     return (
                         <div key={Artikelnummer} className="compare__item">
@@ -78,13 +68,27 @@ class Compare extends Component {
                             <div className="compare__price">
                                 {salePrice}
                             </div>
-                            {displayedTraits.map(item => {
+                            <div className="compare__badges">
+                                {product.badges.split('|').map(badge => {
+                                    return (
+                                        <img className="compare__badge" src={badge} alt="badge"/>
+                                    )
+                                })}
+                            </div>
+                            {displayedTraits.map((item, i) => {
                                 const diff = displayedProducts.some(p => {
                                     return p[item] !== product[item]
                                 });
                                 return (
-                                    <div className={`compare__traits-item ${diff ? 'compare__traits-item--diff' : ''}`}>
-                                        {product[item]}
+                                    <div className="compare__traits-container">
+                                        {index === 0 ? (
+                                            <div key={item} className="compare__traits-key">
+                                                {item}
+                                            </div>
+                                        ): null}
+                                        <div key={i} className={`compare__traits-item ${diff ? 'compare__traits-item--diff' : ''}`}>
+                                            {product[item]}
+                                        </div>
                                     </div>
                                 );
                             })}
