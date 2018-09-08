@@ -1,0 +1,67 @@
+.compare__container {
+    display: flex;
+    overflow: auto;
+    min-width: 100%;
+    min-height: 200px;
+}
+
+.compare__title {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.compare__item {
+    border-bottom: .2rem solid #AEAEAE;
+    margin-bottom: .5rem;
+    position: relative;
+    min-width: 150px;
+    overflow-x: auto;
+}
+
+.compare::-webkit-scrollbar {
+  display: none;
+}
+
+.compare__traits {
+    font-size: .8rem;
+    position: fixed;
+    top: 16rem;
+    display:none;
+}
+
+.compare__traits-item {
+    border: 1px solid grey;
+    padding: .5rem;
+}
+
+.compare__traits-item--diff {
+    background-color: lightgrey;
+}
+
+.compare__select {
+    display:none;
+}
+
+.compare__img {
+    width: 4rem;
+}
+
+.compare__name {
+    font-size: .8rem;
+    max-width:70%;
+    margin:auto;
+    margin-bottom: .5rem;
+}
+
+.compare__price {
+    font-weight: 700;
+    margin-bottom:.5rem;
+}
+
+.compare__trash {
+    width:1rem;
+    position:absolute;
+    right: 1rem;
+    top:.5rem;
+}
+
